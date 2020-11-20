@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option csharp_namespace = "Inventory.API";
+
+package InventoryApi;
+
+service Inventory {
+	rpc GetStuffTypes (EmptyRequest) returns (StuffTypesResponse);
+	rpc AddStuffType (AddStuffTypeRequest) returns (StuffTypeResponse);
+	rpc UpdateStuffType (UpdateStuffTypeRequest) returns (EmptyResponse);
+	rpc DeleteStuffType (DeleteStuffTypeRequest) returns (EmptyResponse);
+}
+
+// Request messages
+message EmptyRequest { }
+
+message AddStuffTypeRequest {
+	string name = 1;
+	string description = 2;
+}
+message UpdateStuffTypeRequest {
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+}
+message DeleteStuffTypeRequest {
+	int32 id = 1;
+}
+
+// Response messages
+message EmptyResponse { }
+
+message StuffTypeResponse {
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+}
+message StuffTypesResponse {
+	repeated StuffType items = 1;
+}
+
+
+// Entity messages
+message StuffType {
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+}
