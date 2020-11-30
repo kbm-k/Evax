@@ -10,17 +10,17 @@ namespace Inventory.Core.Entities
         /// shadow foreign key property will be introduced.
         /// StuffTypeId is defined since we need to configure composite primary key.
         /// </summary>
-        public int StuffTypeId { get; set; }
-        public string Brand { get; set; } = default!;
-        public int Count { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public decimal Price { get; set; }
-        public string? Description { get; set; }
+        public int StuffTypeId { get; init; }
+        public string Brand { get; init; } = default!;
+        public int Count { get; init; }
+        public DateTime PurchaseDate { get; init; }
+        public decimal Price { get; init; }
+        public string? Description { get; init; }
 
         /// <summary>
         /// Private modifier protects collection from external changes directly to it
         /// </summary>
-        private readonly List<History> _histories = new List<History>();
+        private readonly List<History> _histories = new();
 
         /// <summary>
         /// Read only wrapper protects against external changes/updates

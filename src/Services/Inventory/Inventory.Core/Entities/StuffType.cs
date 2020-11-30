@@ -4,14 +4,14 @@ namespace Inventory.Core.Entities
 {
     public class StuffType : BaseEntity
     {
-        public string Name { get; set; } = default!;
+        public string Name { get; init; } = default!;
         
-        public string? Description { get; set; }
+        public string? Description { get; init; }
 
         /// <summary>
         /// Private modifier protects collection from external changes directly to it
         /// </summary>
-        private readonly List<Stuff> _stuff = new List<Stuff>();
+        private readonly List<Stuff> _stuff = new();
 
         /// <summary>
         /// Read only wrapper protects against external changes/updates

@@ -5,11 +5,11 @@ namespace Inventory.Core.Entities
 {
     public class History : BaseEntity
     {
-        public int StuffId { get; set; }
-        public Action Action { get; set; }
-        public DateTime Date { get; set; }
-        public int Count { get; set; }
-        public string? Reason { get; set; }
+        public int StuffId { get; init; }
+        public Action Action { get; init; }
+        public DateTime Date { get; init; }
+        public int Count { get; init; }
+        public string? Reason { get; init; }
 
         // It is enough to have a single navigation property without inverse navigation
         // and foreign key property to have a relationship defined by convention.
